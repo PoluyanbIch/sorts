@@ -1,7 +1,6 @@
 from random import randint
 l = [randint(1, 100) for _ in range(10)]
 print(l)
-c = []
 
 
 def heap(a):
