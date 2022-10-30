@@ -4,21 +4,33 @@ print(l)
 c = []
 
 
-def heap(a, clear_a):
+def heap(a):
     for i in range(len(a)):
         if i == 0:
-            clear_a.append(a[i])
             continue
-        clear_a.append(a[i])
+            
         parent = (i - 1) // 2
+        
         while parent >= 0:
-            if clear_a[i] > clear_a[parent]:
-                clear_a[i], clear_a[parent] = clear_a[parent], clear_a[i]
+            if a[i] > a[parent]:
+                a[i], a[parent] = a[parent], a[i]
                 i = parent
                 parent = (i - 1) // 2
             else:
                 break
-    return clear_a
+    return a
 
 
-print(*heap(l, c))
+print(*heap(l))
+
+
+def heap_sort(a):
+	res = []
+	for i in range(len(a)):
+		a = heap(a)
+		k = a.pop(0)
+		res.append(k)
+	return res
+
+
+print(*heap_sort(l))
